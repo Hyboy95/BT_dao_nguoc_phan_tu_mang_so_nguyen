@@ -1,11 +1,14 @@
 import {Stack} from "./Stack";
 
-let stack: Stack = new Stack();
+let stack = new Stack();
 
 function reverseArray(arr: number[]): number[] {
-    arr.forEach((item: number) => stack.push(item));
+    arr.forEach((item) => stack.push(item));
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = stack.pop();
+        let temp: number | undefined = stack.pop()
+        if (temp){
+           arr[i] = temp;
+        }
     }
     return arr;
 }
